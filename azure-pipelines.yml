@@ -41,7 +41,7 @@ steps:
     command: 'pack'
     packagesToPack: 'src/**/*.csproj'
     configuration: 'release'
-    buildProperties: 'Version=$(Build.BuildNumber);Description=$(description);'
+    buildProperties: 'Version=$(Build.BuildNumber);Description="$(description);"'
 
 - task: NuGetCommand@2
   displayName: .NET Push
