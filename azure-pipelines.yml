@@ -10,9 +10,22 @@ variables:
   packages: 'src/**/*.csproj'
   tests: 'tests/**/*.csproj'
   configuration: release
-  authors: dzhukovsky
-  iconUrl: 
-  description: 
+  description: |
+    A lightweight and efficient implementation of the Result pattern for .NET. 
+    Designed to streamline error and success handling with support for both reference (Result) and value types (ValueResult).
+
+    Features:
+    Class-based (Result): Ideal for scenarios requiring reference semantics.
+    Struct-based (ValueResult): Immutable and optimized for high-performance use cases.
+    Extensibility: Easily integrate custom error handling logic.
+
+    Key Types:
+    IError, Error
+    IResult, IResult<T>
+    Result, Result<T>
+    ValueResult, ValueResult<T>
+    
+    Perfect for replacing exceptions with clean, type-safe alternatives.
 
 steps:
 - task: DotNetCoreCLI@2
@@ -33,7 +46,14 @@ steps:
     packagesToPack: $(packages)
     configuration: $(configuration)
     versioningScheme: byBuildNumber
-    buildProperties: Authors=$(authors);PackageIconUrl=$(iconUrl);Description=$(description)
+    buildProperties: |
+      Authors=dzhukovsky;
+      PackageIconUrl=;
+      Description=$(description);
+      RepositoryUrl=https://github.com/dzhukovsky/CleanResults;
+      RepositoryType=git;
+      PackageReadmeFile=README.md;
+      PackageLicenseFile=LICENSE;
 
 - task: NuGetCommand@2
   displayName: .NET Push
