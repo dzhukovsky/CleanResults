@@ -45,7 +45,6 @@ steps:
     configuration: 'release'
     versioningScheme: 'byBuildNumber'
     buildProperties: |
-      PackageIconUrl=;
       Authors=dzhukovsky;
       Description="$(description)";
       RepositoryUrl=https://github.com/dzhukovsky/CleanResults;
