@@ -1,4 +1,4 @@
-name: $(rev.major).$(rev.minor).$(rev:r)
+name: $(version).$(rev:r)
 
 # trigger: 
 # - main
@@ -7,9 +7,6 @@ pool:
   vmImage: windows-latest
 
 variables:
-  packages: 'src/**/*.csproj'
-  tests: 'tests/**/*.csproj'
-  configuration: release
   description: |
     A lightweight and efficient implementation of the Result pattern for .NET. 
     Designed to streamline error and success handling with support for both reference (Result) and value types (ValueResult).
@@ -31,25 +28,26 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: .NET Restore
   inputs:
-    command: restore
+    command: 'restore'
+    feedsToUse: 'select'
     
 - task: DotNetCoreCLI@2
   displayName: .NET Test
   inputs:
-    command: test
-    projects: $(tests)
+    command: 'test'
+    projects: 'tests/**/*.csproj'
 
 - task: DotNetCoreCLI@2
   displayName: .NET Pack
   inputs:
-    command: pack
-    packagesToPack: $(packages)
-    configuration: $(configuration)
-    versioningScheme: byBuildNumber
+    command: 'pack'
+    packagesToPack: 'src/**/*.csproj'
+    configuration: 'release'
+    versioningScheme: 'byBuildNumber'
     buildProperties: |
-      Authors=dzhukovsky;
       PackageIconUrl=;
-      Description=$(description);
+      Authors=dzhukovsky;
+      Description="$(description)";
       RepositoryUrl=https://github.com/dzhukovsky/CleanResults;
       RepositoryType=git;
       PackageReadmeFile=README.md;
