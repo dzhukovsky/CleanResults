@@ -1,7 +1,6 @@
 name: $(version).$(rev:r)
 
-# trigger: 
-# - main
+trigger: none
 
 pool:
   vmImage: windows-latest
