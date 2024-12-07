@@ -1,0 +1,44 @@
+name: $(rev.major).$(rev.minor).$(rev:r)$(rev.postfix)
+
+trigger: 
+- main
+
+pool:
+  vmImage: windows-latest
+
+variables:
+  packages: 'src/**/*.csproj'
+  tests: 'tests/**/*.csproj'
+  configuration: release
+  authors: dzhukovsky
+  iconUrl: 
+  description: 
+
+steps:
+- task: DotNetCoreCLI@2
+  displayName: .NET Restore
+  inputs:
+    command: restore
+    
+- task: DotNetCoreCLI@2
+  displayName: .NET Test
+  inputs:
+    command: test
+    projects: $(tests)
+
+- task: DotNetCoreCLI@2
+  displayName: .NET Pack
+  inputs:
+    command: pack
+    packagesToPack: $(packages)
+    configuration: $(configuration)
+    versioningScheme: byBuildNumber
+    buildProperties: Authors=$(authors);PackageIconUrl=$(iconUrl);Description=$(description)
+
+- task: NuGetCommand@2
+  displayName: .NET Push
+  inputs:
+    command: 'push'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+    nuGetFeedType: 'external'
+    publishFeedCredentials: 'nuget.org'
