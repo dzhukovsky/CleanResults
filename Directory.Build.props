@@ -4,8 +4,6 @@
     <RepositoryType>git</RepositoryType>
     <RepositoryUrl>https://github.com/dzhukovsky/CleanResults</RepositoryUrl>
     <!--<PackageIconUrl></PackageIconUrl>-->
-    <PackageReadmeFile>../README.md</PackageReadmeFile>
-    <PackageLicenseFile>../LICENSE</PackageLicenseFile>
     <Description>
       A lightweight and efficient implementation of the Result pattern for .NET.
       Designed to streamline error and success handling with support for both reference (Result) and value types (ValueResult).
