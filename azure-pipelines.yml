@@ -43,7 +43,7 @@ steps:
     configuration: 'release'
     buildProperties: 
       Version=$(Build.BuildNumber);
-      Description="$(description);"
+      Description="$(description)";
       RepositoryUrl=https://github.com/dzhukovsky/CleanResults;
       RepositoryType=git;
       PackageIconUrl=;
