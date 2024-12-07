@@ -1,8 +1,0 @@
-<Project>
-  <PropertyGroup>
-    <Authors>dzhukovsky</Authors>
-    <RepositoryType>git</RepositoryType>
-    <RepositoryUrl>https://github.com/dzhukovsky/CleanResults</RepositoryUrl>
-    <!--<PackageIconUrl></PackageIconUrl>-->
-  </PropertyGroup>
-</Project>
