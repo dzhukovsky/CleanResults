@@ -1,7 +1,7 @@
-name: $(rev.major).$(rev.minor).$(rev:r)$(rev.postfix)
+name: $(rev.major).$(rev.minor).$(rev:r)
 
-trigger: 
-- main
+# trigger: 
+# - main
 
 pool:
   vmImage: windows-latest
