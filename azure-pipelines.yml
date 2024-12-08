@@ -19,9 +19,9 @@ variables:
 
     Key Types:
     IError, Error
-    IResult, IResult&lt;T>
-    Result, Result&lt;T>
-    ValueResult, ValueResult&lt;T>
+    IResult, IResult<T>
+    Result, Result<T>
+    ValueResult, ValueResult<T>
 
 steps:
 - task: DotNetCoreCLI@2
