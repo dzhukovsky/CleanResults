@@ -45,7 +45,7 @@ steps:
     includesymbols: true
     includesource: true
     versioningScheme: 'off'
-    buildProperties: 'Version=$(version);Authors=$(authors);RepositoryUrl=$(repository_url);PackageProjectUrl=$(repository_url);PackageIconUrl=;Description="$(description)";PackageLicenseExpression=$(license);PackageTags=$(tags);Deterministic=true;ContinuousIntegrationBuild=true;'
+    buildProperties: 'Version=$(version);Authors=$(authors);RepositoryUrl=$(repository_url);PackageProjectUrl=$(repository_url);PackageIconUrl=;Description="$(description)";PackageLicenseExpression=$(license);PackageTags=$(tags);Deterministic=true;ContinuousIntegrationBuild=true;EmbedUntrackedSources=true;DebugType=true;IncludeSymbols=true;SymbolPackageFormat=snupkg;'
 
 - task: PublishBuildArtifacts@1
   inputs:
@@ -57,6 +57,6 @@ steps:
   displayName: Nuget Push
   inputs:
     command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg;!$(Build.ArtifactStagingDirectory)/*.symbols.nupkg'
+    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg;'
     nuGetFeedType: 'external'
     publishFeedCredentials: 'nuget.org'
