@@ -1,4 +1,4 @@
-name: $(version):$(rev:r)
+name: $(version) b$(rev:r)
 
 trigger: none
 
