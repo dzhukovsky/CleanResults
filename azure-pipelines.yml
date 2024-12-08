@@ -1,4 +1,4 @@
-name: $(version).$(rev:r)
+name: $(version):$(rev:r)
 
 trigger: none
 
@@ -43,7 +43,7 @@ steps:
     packagesToPack: 'src/**/*.csproj'
     configuration: 'release'
     versioningScheme: 'off'
-    buildProperties: 'Version=$(Build.BuildNumber);Authors=$(authors);RepositoryUrl=$(repository_url);PackageProjectUrl=$(repository_url);PackageIconUrl=;Description="$(description)";PackageLicenseExpression=$(license);PackageTags=$(tags)'
+    buildProperties: 'Version=$(version);Authors=$(authors);RepositoryUrl=$(repository_url);PackageProjectUrl=$(repository_url);PackageIconUrl=;Description="$(description)";PackageLicenseExpression=$(license);PackageTags=$(tags)'
 
 - task: NuGetCommand@2
   displayName: .NET Push
