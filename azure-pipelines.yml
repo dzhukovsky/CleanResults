@@ -5,25 +5,6 @@ trigger: none
 pool:
   vmImage: windows-latest
 
-variables:
-  repository_url: https://github.com/dzhukovsky/CleanResults
-  authors: Dmitry Zhukovsky
-  license: MIT
-  tags: Result Results exception error handling
-  description: |
-    A lightweight and efficient implementation of the Result pattern for .NET. Designed to streamline error and success handling with support for both reference (Result) and value types (ValueResult).
-
-    Features:
-    Class-based (Result): Ideal for scenarios requiring reference semantics.
-    Struct-based (ValueResult): Immutable and optimized for high-performance use cases.
-    Extensibility: Easily integrate custom error handling logic.
-
-    Key Types:
-    IError, Error
-    IResult, IResult<T>
-    Result, Result<T>
-    ValueResult, ValueResult<T>
-
 steps:
 - task: DotNetCoreCLI@2
   displayName: .NET Restore
@@ -43,7 +24,7 @@ steps:
     packagesToPack: 'src/**/*.csproj'
     configuration: 'release'
     versioningScheme: 'off'
-    buildProperties: 'Version=$(version);Authors=$(authors);PackageProjectUrl=$(repository_url);PackageIconUrl=;Description="$(description)";PackageLicenseExpression=$(license);PackageTags=$(tags);Deterministic=true;ContinuousIntegrationBuild=true;'
+    buildProperties: 'Version=$(version);ContinuousIntegrationBuild=true;'
 
 - task: PublishBuildArtifacts@1
   inputs:
