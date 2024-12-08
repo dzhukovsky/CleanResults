@@ -45,10 +45,16 @@ steps:
     versioningScheme: 'off'
     buildProperties: 'Version=$(version);Authors=$(authors);RepositoryUrl=$(repository_url);PackageProjectUrl=$(repository_url);PackageIconUrl=;Description="$(description)";PackageLicenseExpression=$(license);PackageTags=$(tags)'
 
-- task: NuGetCommand@2
-  displayName: .NET Push
+- task: PublishBuildArtifacts@1
   inputs:
-    command: 'push'
-    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
-    nuGetFeedType: 'external'
-    publishFeedCredentials: 'nuget.org'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
+
+#- task: NuGetCommand@2
+#  displayName: .NET Push
+#  inputs:
+#    command: 'push'
+#    packagesToPush: '$(Build.ArtifactStagingDirectory)/*.nupkg'
+#    nuGetFeedType: 'external'
+#    publishFeedCredentials: 'nuget.org'
