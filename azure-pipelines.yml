@@ -45,7 +45,7 @@ steps:
     includesymbols: true
     includesource: true
     versioningScheme: 'off'
-    buildProperties: 'Version=$(version);Authors=$(authors);RepositoryUrl=$(repository_url);PackageProjectUrl=$(repository_url);PackageIconUrl=;Description="$(description)";PackageLicenseExpression=$(license);PackageTags=$(tags);Deterministic=true;ContinuousIntegrationBuild=true;SymbolPackageFormat=snupkg;'
+    buildProperties: 'Version=$(version);Authors=$(authors);RepositoryUrl=$(repository_url);PackageProjectUrl=$(repository_url);PackageIconUrl=;Description="$(description)";PackageLicenseExpression=$(license);PackageTags=$(tags);Deterministic=true;ContinuousIntegrationBuild=true;'
 
 - task: PublishBuildArtifacts@1
   inputs:
