@@ -1,12 +1,9 @@
 <Project>
   <PropertyGroup>
     <PackageReadmeFile>README.md</PackageReadmeFile>
-    <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <PackageLicenseExpression>MIT</PackageLicenseExpression>
   </PropertyGroup>
 
   <ItemGroup>
     <None Include="../../README.md" Pack="true" PackagePath="/"/>
-    <None Include="../../LICENSE" Pack="true" PackagePath="/"/>
   </ItemGroup>
 </Project>
