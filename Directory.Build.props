@@ -3,6 +3,8 @@
     <RepositoryUrl>https://github.com/dzhukovsky/CleanResults</RepositoryUrl>
     <PackageIconUrl></PackageIconUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Authors>Dmitry Zhukovsky</Authors>
     <Description>
 A lightweight and efficient implementation of the Result pattern for .NET.
 Designed to streamline error and success handling with support for both reference (Result) and value types (ValueResult).
