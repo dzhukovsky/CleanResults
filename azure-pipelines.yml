@@ -42,7 +42,6 @@ steps:
     command: 'pack'
     packagesToPack: 'src/**/*.csproj'
     configuration: 'release'
-    includesymbols: true
     includesource: true
     versioningScheme: 'off'
     buildProperties: 'Version=$(version);Authors=$(authors);RepositoryUrl=$(repository_url);PackageProjectUrl=$(repository_url);PackageIconUrl=;Description="$(description)";PackageLicenseExpression=$(license);PackageTags=$(tags)'
