@@ -42,10 +42,8 @@ steps:
     command: 'pack'
     packagesToPack: 'src/**/*.csproj'
     configuration: 'release'
-    includesymbols: true
-    includesource: true
     versioningScheme: 'off'
-    buildProperties: 'Version=$(version);Authors=$(authors);RepositoryUrl=$(repository_url);PackageProjectUrl=$(repository_url);PackageIconUrl=;Description="$(description)";PackageLicenseExpression=$(license);PackageTags=$(tags);Deterministic=true;ContinuousIntegrationBuild=true;EmbedUntrackedSources=true;DebugType=portable;IncludeSource=true;IncludeSymbols=true;SymbolPackageFormat=snupkg;'
+    buildProperties: 'Version=$(version);Authors=$(authors);PackageProjectUrl=$(repository_url);PackageIconUrl=;Description="$(description)";PackageLicenseExpression=$(license);PackageTags=$(tags);Deterministic=true;ContinuousIntegrationBuild=true;'
 
 - task: PublishBuildArtifacts@1
   inputs:
