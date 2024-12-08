@@ -1,6 +1,28 @@
 <Project>
   <PropertyGroup>
+    <Authors>Dmitry Zhukovsky</Authors>
+    <PackageTags>Result Results exception error handling</PackageTags>
+    <PackageIconUrl></PackageIconUrl>
+    <PackageProjectUrl>https://github.com/dzhukovsky/CleanResults</PackageProjectUrl>
     <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Description>
+A lightweight and efficient implementation of the Result pattern for .NET. Designed to streamline error and success handling with support for both reference (Result) and value types (ValueResult).
+
+Features:
+Class-based (Result): Ideal for scenarios requiring reference semantics.
+Struct-based (ValueResult): Immutable and optimized for high-performance use cases.
+Extensibility: Easily integrate custom error handling logic.
+
+Key Types:
+IError, Error
+IResult, IResult&lt;T>
+Result, Result&lt;T>
+ValueResult, ValueResult&lt;T>
+    </Description>
+    <Deterministic>true</Deterministic>
+    <IsAotCompatible Condition="$([MSBuild]::IsTargetFrameworkCompatible('$(TargetFramework)', 'net7.0'))">true</IsAotCompatible>
+    <Optimize>true</Optimize>
     
     <!--SourceLink-->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
@@ -12,6 +34,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="../../README.md" Pack="true" PackagePath="/"/>
+    <None Include="../../README.md" Pack="true" PackagePath="/" Visible="False"/>
+    <None Include="../../LICENSE" Pack="true" PackagePath="/" Visible="False"/>
   </ItemGroup>
 </Project>
