@@ -92,6 +92,15 @@ public class Result : IResult
     /// <param name="error">The error associated with the result.</param>
     /// <returns>A failed result.</returns>
     public static Result Fail(IError error) => new(error);
+    
+    /// <summary>
+    /// Creates a failed result with the specified error message and metadata.
+    /// </summary>
+    /// <param name="message">The error message associated with the result.</param>
+    /// <param name="metadata">The metadata associated with the error.</param>
+    /// <returns>A failed result.</returns>
+    public static Result Fail(string message, params object[] metadata)
+        => new(new Error(message, metadata));
 
     /// <summary>
     /// Creates a successful result with the specified value.
@@ -100,6 +109,16 @@ public class Result : IResult
     /// <param name="value">The value associated with the result.</param>
     /// <returns>A successful result with the specified value.</returns>
     public static Result<TValue> Ok<TValue>(TValue value) => new(value);
+
+    /// <summary>
+    /// Creates a failed result with the specified error message and metadata.
+    /// </summary>
+    /// <typeparam name="TValue">The type of the value.</typeparam>
+    /// <param name="message">The error message associated with the result.</param>
+    /// <param name="metadata">The metadata associated with the error.</param>
+    /// <returns>A failed result.</returns>
+    public static Result<TValue> Fail<TValue>(string message, params object[] metadata)
+        => new(new Error(message, metadata));
 
     /// <summary>
     /// Creates a failed result with the specified error.

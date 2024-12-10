@@ -86,6 +86,16 @@ public readonly struct ValueResult : IResult
     /// <returns>A failed <see cref="ValueResult"/>.</returns>
     public static ValueResult Fail(IError error) => new(error);
 
+
+    /// <summary>
+    /// Creates a failed result with the specified error message and metadata.
+    /// </summary>
+    /// <param name="message">The error message associated with the result.</param>
+    /// <param name="metadata">The metadata associated with the error.</param>
+    /// <returns>A failed result.</returns>
+    public static ValueResult Fail(string message, params object[] metadata)
+        => new(new Error(message, metadata));
+
     /// <summary>
     /// Creates a successful result with the specified value.
     /// </summary>
@@ -101,6 +111,16 @@ public readonly struct ValueResult : IResult
     /// <param name="error">The error associated with the result.</param>
     /// <returns>A failed <see cref="ValueResult{TValue}"/>.</returns>
     public static ValueResult<TValue> Fail<TValue>(IError error) => new(error);
+
+    /// <summary>
+    /// Creates a failed result with the specified error message and metadata.
+    /// </summary>
+    /// <typeparam name="TValue">The type of the value.</typeparam>
+    /// <param name="message">The error message associated with the result.</param>
+    /// <param name="metadata">The metadata associated with the error.</param>
+    /// <returns>A failed result.</returns>
+    public static ValueResult<TValue> Fail<TValue>(string message, params object[] metadata)
+        => new(new Error(message, metadata));
 
     /// <summary>
     /// Implicitly converts an <see cref="Error"/> to a <see cref="ValueResult"/>.
